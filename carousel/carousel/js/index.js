@@ -30,33 +30,35 @@ $(function () {
     var ext = ".jpg";
     var i = 0;
     var food = ["food1", "food2", "food3", "food4", "food5", "food6", "food7", "food8"];
-
+    var foodReverse = ["food1", "food2", "food3", "food4", "food5", "food6", "food7", "food8"];
+    foodReverse.reverse();
+    console.log("reversed " + foodReverse);
+    var b = 0;
 
 
     $("#skip").click(function () {
-        
-        
-        //$("#image-to-vote-on").attr('src', imagePath + food[0] + ext);
-        
+
+
+
         i = (i + 1) % food.length;
 
 
         $("#image-to-vote-on").attr('src', imagePath + food[i] + ext);
-        console.log("next image " + food[i] );
+        console.log("next image " + food[i]);
 
     });
-    
-    
+
+
     $("#back").click(function () {
-        
-        
-        //$("#image-to-vote-on").attr('src', imagePath + food[0] + ext);
-        
-        i = (i - 1) % food.length;
 
 
-        $("#image-to-vote-on").attr('src', imagePath + food[i] + ext);
-        console.log("previous image  " + food[i] );
+
+        b = (b + 1) % foodReverse.length;
+
+
+        $("#image-to-vote-on").attr('src', imagePath + foodReverse[b] + ext);
+        console.log("previous image  " + foodReverse[b]);
+
 
     });
 
