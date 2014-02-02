@@ -22,7 +22,7 @@ $('#image-to-vote-on').attr('src', imagePath + 'food' + '.jpg')
 
 */
 
-
+//on ready entry point
 $(function () {
 
     //variables
@@ -30,18 +30,22 @@ $(function () {
     var ext = ".jpg";
     var i = 0;
     var food = ["food1", "food2", "food3", "food4", "food5", "food6", "food7", "food8"];
+    var selectedVal = 0;
+    var imageAndScore = null;
 
-    var b = (i - 1);
-
+//functions
     $("#skip").click(function () {
 
-
-
         i = (i + 1) % food.length;
-
-
+        
+        selectedVal = $("#your-vote option:selected").val() + " score for this food " + food[i];
+        
         $("#image-to-vote-on").attr('src', imagePath + food[i] + ext);
-        console.log("next image " + food[i]);
+
+        console.log(selectedVal);
+
+        $("#container div:nth-child(2)").append("<p>value is " + selectedVal + "</p>").show();
+
 
     });
 
@@ -55,9 +59,12 @@ $(function () {
         i = (i - 1);
 
         $("#image-to-vote-on").attr('src', imagePath + food[i] + ext);
+        
         console.log("previous image  " + food[i]);
-
+        
+        selectedVal = $("#your-vote option:selected").val();
+        
+        $("#container div:nth-child(2)").hide();
     });
-   
 
 });
