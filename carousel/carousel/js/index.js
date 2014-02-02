@@ -10,15 +10,6 @@ manpulate the image with the attr function
 bonus
 score each imge and add the score using the append function
 
-example code
-var imagePath = 'images/'
-var index = 1
-
-$(.btn-skip).on('click')
-var = (/"src=1"images/image.jpg")
-
-$('#image-to-vote-on').attr('src', imagePath + 'food' + '.jpg')
-})
 
 */
 
@@ -34,6 +25,7 @@ $(function () {
     var imageAndScore = null;
 
 //functions
+        
     $("#skip").click(function () {
 
         i = (i + 1) % food.length;
@@ -41,8 +33,6 @@ $(function () {
         selectedVal = $("#your-vote option:selected").val() + " score for this food " + food[i];
         
         $("#image-to-vote-on").attr('src', imagePath + food[i] + ext);
-
-        console.log(selectedVal);
 
         $("#container div:nth-child(2)").append("<p>value is " + selectedVal + "</p>").show();
 
@@ -59,12 +49,11 @@ $(function () {
         i = (i - 1);
 
         $("#image-to-vote-on").attr('src', imagePath + food[i] + ext);
-        
-        console.log("previous image  " + food[i]);
-        
-        selectedVal = $("#your-vote option:selected").val();
-        
+            
         $("#container div:nth-child(2)").hide();
     });
+    
+    
+    
 
 });
