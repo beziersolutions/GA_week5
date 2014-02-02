@@ -30,11 +30,8 @@ $(function () {
     var ext = ".jpg";
     var i = 0;
     var food = ["food1", "food2", "food3", "food4", "food5", "food6", "food7", "food8"];
-    var foodReverse = ["food1", "food2", "food3", "food4", "food5", "food6", "food7", "food8"];
-    foodReverse.reverse();
-    console.log("reversed " + foodReverse);
-    var b = 0;
 
+    var b = (i - 1);
 
     $("#skip").click(function () {
 
@@ -51,29 +48,16 @@ $(function () {
 
     $("#back").click(function () {
 
+        if (i === 0) {
+            i = food.length;
+        }
 
+        i = (i - 1);
 
-        b = (b + 1) % foodReverse.length;
-
-
-        $("#image-to-vote-on").attr('src', imagePath + foodReverse[b] + ext);
-        console.log("previous image  " + foodReverse[b]);
-
+        $("#image-to-vote-on").attr('src', imagePath + food[i] + ext);
+        console.log("previous image  " + food[i]);
 
     });
-
-
-    /*
-
-
-    // <img id="image-to-vote-on" src="images/food1.jpg">
-    //<input type="button" class="btn" value="Skip">
-    $("#skip").click(function() {
-        var i = 0;
-        $("#image-to-vote-on").attr('src', nextImage(i++) );
-
-        
-    }); */
-
+   
 
 });
