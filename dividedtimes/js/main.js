@@ -37,35 +37,19 @@ $(function () {
             console.log('condition is true');
             $(target).slideUp();
             $(this).removeClass('is-active');
-            //if class isnt present - do else statement first entry point if is on subsequent navs within session
-        } else { //first entry point removes all class then adds one and hide all secondary navs 
+
+        } else {
             console.log("else clause entered ");
+            $('#primary-nav a').removeClass('is-active');
 
             $(this).addClass('is-active');
+            // $(this).addClass('is-active'); 
+            // $(this).parent().css("background", "#666");
+            $('#secondary-nav-container section').slideUp();
 
-            // $(this).addClass('is-active'); //jquery checks if a class is ative -checks the state (is) and adds a class to html
-            //  $(this).parent().css("background", "#666");
-            //   $('#secondary-nav-container section').slideUp();
+            $('#secondary-nav-container').show();
 
-            //   $('#secondary-nav-container').show();
-
-            //    $(target).slideDown();
-
-
-            $(this).click(function () {
-                
-           
-
-                $('#secondary-nav-container').show();
-$(this).parent().css("background", "#666");
-                $(target).slideDown();
-            });
-
-            //hide submenus on exit
-            $(this).mouseleave(function () {
-                    $('#secondary-nav-container section').slideUp();
-                $(this).parent().removeAttr("background");
-            });
+            $(target).slideDown();
 
 
         }
